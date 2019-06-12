@@ -50,8 +50,8 @@ public partial class Default2 : System.Web.UI.Page
             if (reader.Read())
             {
                 TextBox2.Text = reader.GetString(reader.GetOrdinal("价格"));
-                TextBox3.Text = reader.GetString(reader.GetOrdinal("库存"));
-                TextBox4.Text = reader.GetString(reader.GetOrdinal("名称"));
+                TextBox3.Text = reader.GetString(reader.GetOrdinal("名称"));
+                TextBox4.Text = reader.GetString(reader.GetOrdinal("库存"));
                 conn.Close();
 
             }
@@ -130,5 +130,20 @@ public partial class Default2 : System.Web.UI.Page
             GridView1.DataSource = SqlDataSource1;
             GridView1.DataBind();
         }
+    }
+    protected void Button2_Click1(object sender, EventArgs e)
+    {
+        string connString = "server=localhost;Integrated Security=True;database=SuperMarket";
+        SqlConnection conn = new SqlConnection(connString);
+        conn.Open();
+        string strSql = "update  product set 价格='" + TextBox2.Text + "',名称='" + TextBox3.Text + "',库存='" + TextBox4.Text + "' where 编号='" + TextBox1.Text + "'";
+        SqlCommand com = new SqlCommand(strSql, conn);
+        com.ExecuteNonQuery();
+        conn.Close();
+        Response.Write("修改");
+        GridView1.DataSourceID = "";
+        GridView1.DataBind();
+        GridView1.DataSource = SqlDataSource1;
+        GridView1.DataBind();
     }
 }

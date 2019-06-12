@@ -38,15 +38,14 @@ table
        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             DataSourceID="SqlDataSource1" Height="630px">
            <Columns>
-               <asp:BoundField DataField="编号" HeaderText="编号" 
-                   SortExpression="编号" />
+               <asp:BoundField DataField="编号" HeaderText="编号" SortExpression="编号" />
                <asp:BoundField DataField="价格" HeaderText="价格" SortExpression="价格" />
                <asp:BoundField DataField="名称" HeaderText="名称" SortExpression="名称" />
                <asp:BoundField DataField="库存" HeaderText="库存" SortExpression="库存" />
            </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:SUPERMARKETConnectionString3 %>" 
+            ConnectionString="<%$ ConnectionStrings:SUPERMARKETConnectionString4 %>" 
             SelectCommand="SELECT * FROM [Product]"></asp:SqlDataSource>
         </td>
     <td class="right">
@@ -63,6 +62,7 @@ table
     <asp:Button ID="Button3" runat="server" Text="查询" onclick="Button3_Click"></asp:Button><br /><br />
     <asp:Button ID="Button4" runat="server" Text="删除" onclick="Button4_Click"></asp:Button>
     <asp:Button ID="Button5" runat="server" Text="重置" onclick="Button5_Click"></asp:Button>
+    <asp:Button ID="Button2" runat="server" Text="修改" onclick="Button2_Click1"></asp:Button>
  </td>
     </tr>
         <tr>
